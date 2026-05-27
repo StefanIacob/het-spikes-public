@@ -250,7 +250,7 @@ class ControlPanel(object):
         rb_frame = tk.LabelFrame(left, text='Input type selection')
         rb_frame.pack(fill="x")
         self.selected_input_option = tk.IntVar()
-        self.selected_input_option.set(1)
+        self.selected_input_option.set(0)
         for (name, val) in input_options.items():
             tk.Radiobutton(rb_frame, text=name, variable=self.selected_input_option, value=val).pack(fill='x')
 

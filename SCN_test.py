@@ -22,7 +22,7 @@ if __name__ == '__main__':
     dec_scale = 1
     D = np.random.normal(loc=0.0, scale=1, size=(N, M))
     D = D / np.linalg.norm(D, axis=1, keepdims=True) * dec_scale
-    spike_cost =  np.ones(shape=(N,)) * 4  # np.random.uniform(0.1, 1.5, size=(N,))
+    spike_cost =  np.ones(shape=(N,)) * 0.1
     spike_scaling = False
     spike_scaling_factor = 1
     test_net = SCN_autoencoder(D, tau, spike_cost, dt, B, spike_scaling=spike_scaling, spike_scaling_factor=spike_scaling_factor, bias_compensation=True)
@@ -30,4 +30,5 @@ if __name__ == '__main__':
     t = np.arange(0, 40, 0.001)
     inputs = lorenz(10000, h=dt)[:, :M]
     sim_net.visualize_interactive_2D(rasterplot=False, inputs=inputs.T, spike_vis=True,probe_index=1)
-    evaluate_SCN_autoencoder(test_net, inputs, dt)
+    # sim_net.visualize_interactive_2D(rasterplot=False, inputs=inputs.T, spike_vis=True,probe_index=1)
+    # evaluate_SCN_autoencoder(test_net, inputs, dt)
